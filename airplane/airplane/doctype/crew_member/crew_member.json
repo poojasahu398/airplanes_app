@@ -1,0 +1,41 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-10-24 13:12:00.766703",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "name1",
+  "post_of_member"
+ ],
+ "fields": [
+  {
+   "fetch_from": "post_of_member.name1",
+   "fieldname": "name1",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Name "
+  },
+  {
+   "fetch_from": "name1.flight_crew",
+   "fieldname": "post_of_member",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Post of Member",
+   "options": "Flight crew"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2024-10-25 11:59:46.320252",
+ "modified_by": "Administrator",
+ "module": "airplane",
+ "name": "Crew Member",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": []
+}

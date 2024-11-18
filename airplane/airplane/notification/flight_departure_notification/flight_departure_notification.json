@@ -1,0 +1,32 @@
+{
+ "attach_print": 0,
+ "channel": "Email",
+ "condition": "doc.status == \"Scheduled\"\n",
+ "creation": "2024-09-30 10:32:34.420185",
+ "date_changed": "creation",
+ "days_in_advance": 1,
+ "docstatus": 0,
+ "doctype": "Notification",
+ "document_type": "Airplane Flight",
+ "enabled": 1,
+ "event": "Days Before",
+ "idx": 0,
+ "is_standard": 1,
+ "message": "<p>Flight {{ doc.name }} is departing in 24 hours. Be prepared for the upcoming departure.</p>\n",
+ "message_type": "Markdown",
+ "modified": "2024-09-30 10:34:58.930349",
+ "modified_by": "Administrator",
+ "module": "airplane",
+ "name": "Flight Departure Notification",
+ "owner": "Administrator",
+ "recipients": [
+  {
+   "receiver_by_role": "System Manager"
+  }
+ ],
+ "send_system_notification": 1,
+ "send_to_all_assignees": 0,
+ "sender": "pooja",
+ "sender_email": "poojateli23@navgurukul.org",
+ "subject": "Departs in 24 hours!"
+}

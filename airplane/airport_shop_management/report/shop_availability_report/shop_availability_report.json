@@ -1,0 +1,28 @@
+{
+ "add_total_row": 0,
+ "columns": [],
+ "creation": "2024-11-07 12:38:22.596026",
+ "disabled": 0,
+ "docstatus": 0,
+ "doctype": "Report",
+ "filters": [],
+ "idx": 0,
+ "is_standard": "Yes",
+ "json": "{}",
+ "letterhead": null,
+ "modified": "2024-11-07 17:36:26.054225",
+ "modified_by": "Administrator",
+ "module": "Airport Shop Management",
+ "name": "Shop Availability Report",
+ "owner": "Administrator",
+ "prepared_report": 0,
+ "query": "SELECT airport,\n       COUNT(CASE WHEN status = 'available' THEN 1 END) AS available_shops,\n       COUNT(CASE WHEN status = 'occupied' THEN 1 END) AS occupied_shops\nFROM `tabShop Information`\nGROUP BY airport;",
+ "ref_doctype": "Shop Information",
+ "report_name": "Shop Availability Report",
+ "report_type": "Query Report",
+ "roles": [
+  {
+   "role": "System Manager"
+  }
+ ]
+}

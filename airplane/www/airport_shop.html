@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop Portal</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-image: url('https://i.pinimg.com/736x/0f/1f/f5/0f1ff5c62f32ef9dcdca240588e5a059.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
+
+            font-family: 'Arial', sans-serif;
+        }
+
+        .container {
+            padding: 2em;
+            background-image: url("https://images.rawpixel.com/image_800/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDI0LTA4L3Jhd3BpeGVsX29mZmljZV8zNF8zZF9pbGx1c3RyYXRpb25fb2ZfaW5zaWRlX2FpcnBvcnRfX3doaXRlX2JhY182ZTYyMTJiZC03YmMyLTRhMTMtYjc1NC1kMGZjZjUwYjBlNmMtYmx1ci5qcGc.jpg")
+            border-radius: 15px;
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+            margin-top: 2em;
+        }
+
+        h1 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 1.5em;
+            font-weight: bold;
+            font-size: 2em;
+        }
+
+        label {
+            font-size: 1.2em;
+            color: #555;
+            margin-right: 0.5em;
+        }
+
+        select {
+            width: 100%;
+            max-width: 300px;
+            padding: 0.6em;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background-color: #b19a9a;
+            color: #333;
+        }
+
+        .form-container {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 2em;
+        }
+
+        .card {
+            background-color: #fff;
+            color: #333;
+            border-radius: 10px;
+            margin: 1em;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            width: 18rem;
+            padding: 1.5em;
+            text-align: center;
+        }
+
+        .card h2 {
+            font-size: 1.4em;
+            margin-bottom: 1em;
+            font-weight: bold;
+            color: #555;
+        }
+
+        .card p {
+            font-size: 1em;
+            margin-bottom: 0.8em;
+            color: #666;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0px 6px 14px rgba(0, 0, 0, 0.15);
+        }
+
+        .row {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1em;
+        }
+
+        .mt-5 {
+            margin-top: 2em;
+        }
+    </style>
+</head>
+<body>
+    {% block page_content %}
+    <div class="container">
+        <h1>{{ _("Shop Portal") }}</h1>
+        <div class="form-container">
+            <form method="GET" action="" class="d-flex align-items-center">
+                <label for="airport" style="color: #dddb;">Airport:</label>
+                <select id="airport" name="airport" onchange="this.form.submit()">
+                    <option value="">All</option>
+                    {% for airport in airports %}
+                    <option value="{{ airport.name }}" {% if selected_airport == airport.name %}selected{% endif %}>{{ airport.name }}</option>
+                    {% endfor %}
+                </select>
+            </form>
+        </div>
+
+        <div class="mt-5 row">
+            {% for shop in shops %}
+            <div class="card">
+                <h2>{{ shop.shop_name }}</h2>
+                <p><strong>Shop No:</strong> {{ shop.shop_number }}</p>
+                <p><strong>Area:</strong> {{ shop.location }}</p>
+                <p><strong>Owner:</strong> {{ shop.tenant }}</p>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    {% endblock %}
+</body>
+</html>

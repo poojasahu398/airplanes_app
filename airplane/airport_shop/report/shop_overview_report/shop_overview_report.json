@@ -1,0 +1,27 @@
+{
+ "add_total_row": 1,
+ "columns": [],
+ "creation": "2024-10-30 12:25:33.295445",
+ "disabled": 0,
+ "docstatus": 0,
+ "doctype": "Report",
+ "filters": [],
+ "idx": 0,
+ "is_standard": "Yes",
+ "letterhead": null,
+ "modified": "2024-11-14 11:41:30.558987",
+ "modified_by": "Administrator",
+ "module": "Airport shop",
+ "name": "Shop Overview Report",
+ "owner": "Administrator",
+ "prepared_report": 0,
+ "ref_doctype": "Shop Information",
+ "report_name": "Shop Overview Report",
+ "report_script": "def execute(filters=None):\n    columns = [\n        {\"fieldname\": \"shop_number\", \"label\": _(\"Shop Number\"), \"fieldtype\": \"Data\", \"width\": 120},\n        {\"fieldname\": \"shop_name\", \"label\": _(\"Shop Name\"), \"fieldtype\": \"Data\", \"width\": 200},\n        {\"fieldname\": \"status\", \"label\": _(\"Status\"), \"fieldtype\": \"Select\", \"options\": \"\\nOccupied\\nAvailable\", \"width\": 100},\n    ]\n\n    data = get_shop_data(filters)\n    return columns, data\n\ndef get_shop_data(filters):\n    shops = frappe.get_all('Shop', fields=['shop_number', 'name as shop_name', 'status'])\n    return shops\n\n",
+ "report_type": "Script Report",
+ "roles": [
+  {
+   "role": "System Manager"
+  }
+ ]
+}

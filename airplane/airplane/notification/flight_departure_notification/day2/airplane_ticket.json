@@ -1,0 +1,164 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "format:{flight}-{source_airport}-{destination_airport}",
+ "creation": "2024-09-16 10:34:50.193734",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "airplane_ticket_section",
+  "passenger",
+  "amended_from",
+  "column_break_ajth",
+  "flight",
+  "ticket_status",
+  "section_break_ifun",
+  "seat",
+  "column_break_drop",
+  "duration_of_flight",
+  "section_break_amuy",
+  "table_vvas",
+  "section_break_blax",
+  "flight_price",
+  "column_break_etdq",
+  "total_amount"
+ ],
+ "fields": [
+  {
+   "fieldname": "airplane_ticket_section",
+   "fieldtype": "Section Break",
+   "label": "Airplane Ticket"
+  },
+  {
+   "fieldname": "passenger",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Passenger",
+   "options": "Flight Passenger",
+   "reqd": 1
+  },
+  {
+   "fieldname": "flight",
+   "fieldtype": "Link",
+   "label": "Flight",
+   "options": "Airplane Flight",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "flight.duration",
+   "fetch_if_empty": 1,
+   "fieldname": "duration_of_flight",
+   "fieldtype": "Duration",
+   "label": "Duration of Flight",
+   "reqd": 1
+  },
+  {
+   "fieldname": "ticket_status",
+   "fieldtype": "Select",
+   "label": "Ticket Status",
+   "options": "Booked\nChecked\nBoarded",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_ajth",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Airplane Ticket",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "flight_price",
+   "fieldtype": "Currency",
+   "label": "Flight Price",
+   "non_negative": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "total_amount",
+   "fieldtype": "Currency",
+   "label": "Total Amount",
+   "non_negative": 1
+  },
+  {
+   "fieldname": "section_break_amuy",
+   "fieldtype": "Section Break",
+   "label": "Add ons"
+  },
+  {
+   "fieldname": "seat",
+   "fieldtype": "Data",
+   "label": "Seat",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_break_ifun",
+   "fieldtype": "Section Break",
+   "label": "Flight Schedule"
+  },
+  {
+   "fieldname": "column_break_drop",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_blax",
+   "fieldtype": "Section Break",
+   "label": "Ticket Costs"
+  },
+  {
+   "fieldname": "column_break_etdq",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "table_vvas",
+   "fieldtype": "Table",
+   "options": "Airplane Ticket Add-on Item"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2024-09-26 20:24:48.035415",
+ "modified_by": "Administrator",
+ "module": "airplane",
+ "name": "Airplane Ticket",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "creation",
+ "sort_order": "DESC",
+ "states": [
+  {
+   "color": "Gray",
+   "title": "Booked"
+  },
+  {
+   "color": "Purple",
+   "title": "Checked"
+  },
+  {
+   "color": "Green",
+   "title": "Boarded"
+  }
+ ],
+ "track_changes": 1
+}

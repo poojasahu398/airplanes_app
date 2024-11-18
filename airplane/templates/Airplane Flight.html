@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flight Details</title>
+</head>
+<body>
+    <h2>Flight Details</h2>
+    
+    <!-- Display flight details here -->
+    <p>Source Airport: <span id="source_airport"></span></p>
+    <p>Destination Airport: <span id="destination_airport"></span></p>
+    <p>Departure Time: <span id="departure_time"></span></p>
+    <p>Duration: <span id="duration"></span></p>
+
+    <!-- Button to fetch flight details -->
+    <button onclick="fetchFlightDetails()">Get Flight Details</button>
+    
+    <script>
+        // Function to fetch flight details from Frappe
+        function fetchFlightDetails() {
+            frappe.call({
+                method: "airplane.airplane_flight.get_flight_details", // Backend method path
+                args: { route: "your-route-here" }, // Replace with actual route
+                callback: function(response) {
+                    let flight = response.message;  // Get the flight data from response
+                    if (flight) {
+                        // Update HTML elements with flight data
+                        document.getElementById("source_airport").innerText = flight.source_airport;
+                        document.getElementById("destination_airport").innerText = flight.destination_airport;
+                        document.getElementById("departure_time").innerText = flight.departure_time;
+                        document.getElementById("duration").innerText = flight.duration;
+                    } else {
+                        console.log("Flight data not found");
+                    }
+                }
+            });
+        }
+    </script>
+</body>
+</html>
+
+
